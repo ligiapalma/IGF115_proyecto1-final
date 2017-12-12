@@ -16,6 +16,8 @@
     <link href="{{asset('css/light-bootstrap-dashboard.css?v=2.0.0')}} " rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('css/demo.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/style-chat.css')}}" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -218,24 +220,18 @@
                         </div>
                         <div class="col-md-4">
                             <div class="card card-user">
-                                <div class="card-image">
-                                    <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="...">
-                                </div>
+                                <h3 class="col-md-8">Chat</h3>
                                 <div class="card-body">
-                                    <div class="author">
-                                        <a href="#">
-                                            <img class="avatar border-gray" src="{{asset('img/faces/face-3.jpg')}}" alt="...">
-                                            <h5 class="title">Mike Andrew</h5>
-                                        </a>
-                                        <p class="description">
-                                            michael24
-                                        </p>
+                                    <div class="col-sm-12 col-sm-offset-4 frame">
+                                        <ul class="chat"></ul>
+                                        <div>
+                                            <div class="msj-rta macro" style="margin:auto">                        
+                                                <div class="text text-r" style="background:whitesmoke !important">
+                                                    <input class="mytext" placeholder="Type a message"/>
+                                                </div> 
+                                            </div>
+                                        </div>
                                     </div>
-                                    <p class="description text-center">
-                                        "Lamborghini Mercy
-                                        <br> Your chick she so thirsty
-                                        <br> I'm in that two seat Lambo"
-                                    </p>
                                 </div>
                                 <hr>
                                 <div class="button-container mr-auto ml-auto">
@@ -274,5 +270,6 @@
 <script src="{{asset('js/light-bootstrap-dashboard.js?v=2.0.0')}} " type="text/javascript"></script>
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{asset('js/demo.js')}}"></script>
+<script src="{{asset('js/chat.js')}}"></script>
 
 </html>

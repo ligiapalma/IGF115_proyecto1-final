@@ -12,15 +12,12 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,200" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css" />
     <!-- CSS Files -->
-    
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet" />
-    <!--external css-->
-    <link href="{{asset('font-awesome/css/font-awesome.css')}}" rel="stylesheet" />
-    <!-- Custom styles for this template -->
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('css/style-responsive.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/light-bootstrap-dashboard.css?v=2.0.0')}} " rel="stylesheet" />
     <!-- CSS Just for demo purpose, don't include it in your project -->
     <link href="{{asset('css/demo.css')}}" rel="stylesheet" />
+    <link href="{{asset('css/style-chat.css')}}" rel="stylesheet" />
+
 </head>
 
 <body>
@@ -38,7 +35,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                <ul class="nav">
+                <ul class="nav ">
                     
                     <li class="nav-item active">
                         <a class="nav-link" href="./user.html">
@@ -140,73 +137,19 @@
                     <div class="row">
                         <div class="col-md-8">
                             <div class="card">
-                               <section class="panel">
-                          <div class="panel-body profile-activity">
-                              <h5 class="pull-right">12 August 2013</h5>
-                              <div class="activity terques">
-                                  <span>
-                                      <i class="icon-shopping-cart"></i>
-                                  </span>
-                                  <div class="activity-desk">
-                                      <div class="panel">
-                                          <div class="panel-body">
-                                              <div class="arrow"></div>
-                                              <i class=" icon-time"></i>
-                                              <h4>10:45 AM</h4>
-                                              <p>Purchased new equipments for zonal office setup and stationaries.</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="activity alt purple">
-                                  <span>
-                                      <i class="icon-rocket"></i>
-                                  </span>
-                                  <div class="activity-desk">
-                                      <div class="panel">
-                                          <div class="panel-body">
-                                              <div class="arrow-alt"></div>
-                                              <i class=" icon-time"></i>
-                                              <h4>12:30 AM</h4>
-                                              <p>Lorem ipsum dolor sit amet consiquest dio</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-                              <div class="activity blue">
-                                  <span>
-                                      <i class="icon-bullhorn"></i>
-                                  </span>
-                                  <div class="activity-desk">
-                                      <div class="panel">
-                                          <div class="panel-body">
-                                              <div class="arrow"></div>
-                                              <i class=" icon-time"></i>
-                                              <h4>10:45 AM</h4>
-                                              <p>Please note which location you will consider, or both. Reporting to the VP <br> of Compliance and CSR, you will be responsible for managing.. </p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-
-                              <div class="activity alt green">
-                                  <span>
-                                      <i class="icon-beer"></i>
-                                  </span>
-                                  <div class="activity-desk">
-                                      <div class="panel">
-                                          <div class="panel-body">
-                                              <div class="arrow-alt"></div>
-                                              <i class=" icon-time"></i>
-                                              <h4>12:30 AM</h4>
-                                              <p>Please note which location you will consider, or both.</p>
-                                          </div>
-                                      </div>
-                                  </div>
-                              </div>
-
-                          </div>
-                      </section>
+                                
+                                <div class="card-body">
+                                      <div class="col-sm-12 col-sm-offset-4 frame">
+                                        <ul class="chat"></ul>
+                                        <div>
+                                            <div class="msj-rta macro" style="margin:auto">                        
+                                                <div class="text text-r" style="background:whitesmoke !important">
+                                                    <input class="mytext" placeholder="Type a message"/>
+                                                </div> 
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                         <div class="col-md-4">
@@ -267,15 +210,6 @@
 <script src="{{asset('js/light-bootstrap-dashboard.js?v=2.0.0')}} " type="text/javascript"></script>
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{asset('js/demo.js')}}"></script>
+<script src="{{asset('js/chat.js')}}"></script>
 
-<!-- chat script -->
-    <script src="{{asset('js/jquery.js')}}"></script>
-    <script src="{{asset('js/bootstrap.min.js')}}"></script>
-    <script class="include" type="text/javascript" src="{{asset('js/jquery.dcjqaccordion.2.7.js')}}"></script>
-    <script src="{{asset('js/jquery.scrollTo.min.js')}}"></script>
-    <script src="{{asset('js/jquery.nicescroll.js')}}" type="text/javascript"></script>
-    <script src="{{asset('js/jquery.knob.js')}}"></script>
-    <script src="{{asset('js/respond.min.js')}}" ></script>
-    <!--common script for all pages-->
-    <script src="{{asset('js/common-scripts.js')}}"></script>
 </html>
