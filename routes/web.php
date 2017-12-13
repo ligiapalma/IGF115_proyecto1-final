@@ -25,6 +25,8 @@ Route::group(['middleware' => 'auth'], function () {
 	Route::name('usuarioCrearPost')->post('/usuario/nuevo', 'UserController@store');
 	Route::name('usuarioEditar')->get('/usuarioeditar/{id}', 'UserController@edit');
 	Route::name('usuarioEditarPost')->post('/usuario/editar/{id}', 'UserController@update');
+	Route::name('consultaCrear')->post('/guardarconsulta', 'ConsultaController@guardar');
+	Route::name('consultaExito')->post('/consultaExito', 'ConsultaController@exito');
 	
 });
 

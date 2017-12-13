@@ -31,5 +31,13 @@
   "dependencies": {
     "express": "*",
     "socket.io": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ligiapalma/IGF115_proyecto1-final.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ligiapalma/IGF115_proyecto1-final/issues"
+  },
+  "homepage": "https://github.com/ligiapalma/IGF115_proyecto1-final#readme"
 }

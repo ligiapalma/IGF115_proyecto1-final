@@ -138,81 +138,42 @@
                         <div class="col-md-8">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title">Expediente Clínico</h4>
+                                    <h4 class="card-title">Datos de consulta medica</h4>
                                 </div>
                                 <div class="card-body">
-                                    <form>
-                                        <div class="row">
-                                            <div class="col-md-5 pr-1">
-                                                <div class="form-group">
-                                                    <label>Doctor</label>
-                                                    <input type="text" class="form-control" disabled="" placeholder="Doctor" value={{ Auth::user()->name }}>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-3 px-1">
-                                                <div class="form-group">
-                                                    <label>Paciente</label>
-                                                    <input type="text" class="form-control" placeholder="Username" value="michael23">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 pl-1">
-                                                <div class="form-group">
-                                                    <label for="exampleInputEmail1">Email Paciente</label>
-                                                    <input type="email" class="form-control" placeholder="Email">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <form action="{{ route('consultaCrear') }}" method="POST">
+                                    <input type="hidden" name="_token" value="{{csrf_token()}}">
                                         <div class="row">
                                             <div class="col-md-6 pr-1">
                                                 <div class="form-group">
-                                                    <label>Nombres</label>
-                                                    <input type="text" class="form-control" placeholder="Company" value="Mike">
+                                                    <label>Realizada por el Doctor</label>
+                                                    <input name="id_medico" type="text" class="form-control"  placeholder="Doctor" value={{ Auth::user()->id }} >
                                                 </div>
                                             </div>
                                             <div class="col-md-6 pl-1">
                                                 <div class="form-group">
-                                                    <label>Apellidos</label>
-                                                    <input type="text" class="form-control" placeholder="Last Name" value="Andrew">
+                                                    <label>Paciente</label>
+                                                    <input name="id_paciente" type="text" class="form-control" placeholder="ID del Paciente" value="">
                                                 </div>
                                             </div>
+                                            
                                         </div>
                                         <div class="row">
-                                            <div class="col-md-12">
+                                            <div class="col-md-6 pr-1">
                                                 <div class="form-group">
-                                                    <label>Dirección</label>
-                                                    <input type="text" class="form-control" placeholder="Home Address" value="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09">
+                                                    <label>Resultado de la consulta</label><br>
+                                                    <textarea name="resultado" rows="10" cols="38"></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6 pr-1">
+                                                <div class="form-group">
+                                                    <label>Diagnostico / Tratamiento</label><br>
+                                                    <textarea name="tratamiento" rows="10" cols="38"></textarea>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="row">
-                                            <div class="col-md-4 pr-1">
-                                                <div class="form-group">
-                                                    <label>City</label>
-                                                    <input type="text" class="form-control" placeholder="City" value="Mike">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 px-1">
-                                                <div class="form-group">
-                                                    <label>Country</label>
-                                                    <input type="text" class="form-control" placeholder="Country" value="Andrew">
-                                                </div>
-                                            </div>
-                                            <div class="col-md-4 pl-1">
-                                                <div class="form-group">
-                                                    <label>Postal Code</label>
-                                                    <input type="number" class="form-control" placeholder="ZIP Code">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label>About Me</label>
-                                                    <textarea rows="4" cols="80" class="form-control" placeholder="Here can be your description" value="Mike">Lamborghini Mercy, Your chick she so thirsty, I'm in that two seat Lambo.</textarea>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <button type="submit" class="btn btn-info btn-fill pull-right">Update Profile</button>
+                                        
+                                        <button type="submit" class="btn btn-info btn-fill pull-right">Guardar resultado de consulta</button>
                                         <div class="clearfix"></div>
                                     </form>
                                 </div>
