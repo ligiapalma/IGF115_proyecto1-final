@@ -143,11 +143,12 @@
                                 <div class="card-body">
                                     <form action="{{ route('consultaCrear') }}" method="POST">
                                     <input type="hidden" name="_token" value="{{csrf_token()}}">
+                                    <input type="hidden" name="id_medico" value="{{ Auth::user()->id }}">
                                         <div class="row">
                                             <div class="col-md-6 pr-1">
                                                 <div class="form-group">
                                                     <label>Realizada por el Doctor</label>
-                                                    <input name="id_medico" type="text" class="form-control"  placeholder="Doctor" value={{ Auth::user()->id }} >
+                                                    <input type="text" class="form-control"  placeholder="Doctor" value="{{ Auth::user()->name }}" disabled="">
                                                 </div>
                                             </div>
                                             <div class="col-md-6 pl-1">
@@ -185,7 +186,7 @@
                                 <div class="card-body">
                                     <div class="col-sm-12 col-sm-offset-4 frame">
                                         <ul class="chat"></ul>
-                                        <div>
+                                        <div
                                             <div class="msj-rta macro" style="margin:auto">                        
                                                 <div class="text text-r" style="background:whitesmoke !important">
                                                     <input class="mytext" placeholder="Type a message"/>
