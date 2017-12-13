@@ -24,7 +24,7 @@ function insertChat(who, text, time = 0){
         
         control = '<li style="width:100%">' +
                         '<div class="msj macro">' +
-                        '<div class="avatar"><img class="img-circle" style="width:100%;" src="'+ me.avatar +'" /></div>' +
+                        '<div class="avatar-chat"><img class="img-circle" style="width:50%;" src="'+ me.avatar +'" /></div>' +
                             '<div class="text text-l">' +
                                 '<p>'+ text +'</p>' +
                                 '<p><small>'+date+'</small></p>' +
@@ -38,7 +38,7 @@ function insertChat(who, text, time = 0){
                                 '<p>'+text+'</p>' +
                                 '<p><small>'+date+'</small></p>' +
                             '</div>' +
-                        '<div class="avatar" style="padding:0px 0px 0px 10px !important"><img class="img-circle" style="width:100%;" src="'+you.avatar+'" /></div>' +                                
+                        '<div class="avatar-chat" style="padding:0px 0px 0px 10px !important"><img class="img-circle" style="width:50%;" src="'+you.avatar+'" /></div>' +                                
                   '</li>';
     }
     setTimeout(
@@ -67,12 +67,30 @@ $(".mytext").on("keyup", function(e){
 resetChat();
 
 //-- Print Messages
-insertChat("me", "Hello Tom...", 0);  
-insertChat("you", "Hi, Pablo", 1500);
-insertChat("me", "What would you like to talk about today?", 3500);
-insertChat("you", "Tell me a joke",7000);
-insertChat("me", "Spaceman: Computer! Computer! Do we bring battery?!", 9500);
-insertChat("you", "LOL", 12000);
+// insertChat("me", "Hello Tom...", 0);  
+// insertChat("you", "Hi, Pablo", 1500);
+// insertChat("me", "What would you like to talk about today?", 3500);
+// insertChat("you", "Tell me a joke",7000);
+// insertChat("me", "Spaceman: Computer! Computer! Do we bring battery?!", 9500);
+// insertChat("you", "LOL", 12000);
 
 
 //-- NOTE: No use time on insertChat.
+ var socket = io.connect('http://localhost:8888');
+        jQuery(document).ready(function($){
+            $('.mytext').click(function () {
+                
+                if ($('.mytext').val() != ""){
+                        socket.emit('sendChatToServer',$('.mytext').val());
+                        $('.mytext').val('');
+                }else{
+                     alert('Por favor ingrese un mensaje');
+                }
+                return false;
+            });
+            socket.on('serverChatToClient', function(data){
+                var respuesta=data.msg;
+            });
+        });
+
+insertChat("you", respuesta, 12000);

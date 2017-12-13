@@ -27,6 +27,7 @@ class HomeController extends Controller
     }
     public function index2()
     {
-        return view('home2');
+        $medico=\App\User::FindOrFail(6);
+        return view('home2')->with('medico',$medico);
     }
 }

@@ -80,41 +80,14 @@
             <!-- Navbar -->
             <nav class="navbar navbar-expand-lg " color-on-scroll="500">
                 <div class=" container  ">
-                    <a class="navbar-brand" > {{ Auth::user()->name }}</a>
+                    <a class="navbar-brand" id="username"> {{ Auth::user()->name }}</a>
                     <button href="" class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" aria-controls="navigation-index" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
                         <span class="navbar-toggler-bar burger-lines"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <!-- <ul class="nav navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-palette"></i>
-                                    <span class="d-lg-none">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-planet"></i>
-                                    <span class="notification">5</span>
-                                    <span class="d-lg-none">Notification</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Notification 1</a>
-                                    <a class="dropdown-item" href="#">Notification 2</a>
-                                    <a class="dropdown-item" href="#">Notification 3</a>
-                                    <a class="dropdown-item" href="#">Notification 4</a>
-                                    <a class="dropdown-item" href="#">Another notification</a>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nc-icon nc-zoom-split"></i>
-                                    <span class="d-lg-block">&nbsp;Search</span>
-                                </a>
-                            </li>
-                        </ul> -->
+                        
                         <ul class="navbar-nav ml-auto">
                                 
                             <li class="nav-item">
@@ -139,16 +112,27 @@
                             <div class="card">
                                 
                                 <div class="card-body">
-                                      <div class="col-sm-12 col-sm-offset-4 frame">
-                                        <ul class="chat"></ul>
-                                        <div>
-                                            <div class="msj-rta macro" style="margin:auto">                        
-                                                <div class="text text-r" style="background:whitesmoke !important">
-                                                    <input class="mytext" placeholder="Type a message"/>
-                                                </div> 
+                                       <div id="messageArea" class="row">
+                                            
+                                            <div class="col-md-12">
+                                                <div class="card cardchat" id="chat">
+                                                    <ul>
+                                                        
+                                                    </ul>
+                                                </div>
+
+                                                <form id="messageForm">
+                                                    <div class="form-group">
+                                                        <label>Digita tu mensaje</label>
+                                                        <textarea class="form-control" id="message"></textarea>
+                                                        </br>
+                                                        <input type="submit" id="submit-chat" class="btn btn-info btn-fill pull-right" value="Enviar Mensaje" />
+
+                                                    </div>
+                                                </form> 
                                             </div>
+
                                         </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -161,10 +145,10 @@
                                     <div class="author">
                                         <a href="#">
                                             <img class="avatar border-gray" src="{{asset('img/faces/face-3.jpg')}}" alt="...">
-                                            <h5 class="title">Mike Andrew</h5>
+                                            <h5 class="title">{{$medico->name}}</h5>
                                         </a>
                                         <p class="description">
-                                            michael24
+                                            {{$medico->email}}
                                         </p>
                                     </div>
                                     <p class="description text-center">
@@ -210,6 +194,35 @@
 <script src="{{asset('js/light-bootstrap-dashboard.js?v=2.0.0')}} " type="text/javascript"></script>
 <!-- Light Bootstrap Dashboard DEMO methods, don't include it in your project! -->
 <script src="{{asset('js/demo.js')}}"></script>
-<script src="{{asset('js/chat.js')}}"></script>
 
-</html>
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.js"></script>
+
+<script type="text/javascript">
+
+        var socket = io.connect('http://localhost:8888');
+        jQuery(document).ready(function($){
+
+            // var $user = $('#username').html().trim();
+
+            $('#submit-chat').click(function () {
+                
+                if ($('#message').val() != ""){
+
+                        socket.emit('sendChatToServer',$('#username').html().trim() + ': '+ $('#message').val());
+                        $('#message').val('');
+                }else{
+                     alert('Por favor ingrese un mensaje');
+                }
+                return false;
+            });
+
+            socket.on('serverChatToClient', function(data){
+                $('#chat').append('<div class ="form-control">'+data.msg+'</div>')
+            });
+
+            
+        });
+    </script>
+
+    </html>
