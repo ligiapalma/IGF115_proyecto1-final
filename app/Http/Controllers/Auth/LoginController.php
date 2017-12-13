@@ -35,9 +35,9 @@ class LoginController extends Controller
 
                 foreach ($this->guard()->user()->roles as $role) {
                   if($role->nombre=="Medico"){
-                    return redirect('home');
+                    return redirect('index');
                   }elseif ($role->nombre=="Paciente") {
-                    return redirect('home2');
+                    return redirect('index2');
                   }
                 }
             }

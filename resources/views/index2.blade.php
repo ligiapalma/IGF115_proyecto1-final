@@ -27,7 +27,7 @@
             <div class="sidebar-wrapper">
                 <div class="logo">
                     <a href="#" class="simple-text">
-                        Paciente
+                        Médicos en Línea
                     </a>
                 </div>
                 @if (session('status'))
@@ -35,7 +35,7 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                <ul class="nav ">
+                <ul class="nav">
                     
                     <li class="nav-item active">
                         <a class="nav-link" href="./user.html">
@@ -76,34 +76,7 @@
                         <span class="navbar-toggler-bar burger-lines"></span>
                     </button>
                     <div class="collapse navbar-collapse justify-content-end" id="navigation">
-                        <!-- <ul class="nav navbar-nav mr-auto">
-                            <li class="nav-item">
-                                <a href="#" class="nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-palette"></i>
-                                    <span class="d-lg-none">Dashboard</span>
-                                </a>
-                            </li>
-                            <li class="dropdown nav-item">
-                                <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-                                    <i class="nc-icon nc-planet"></i>
-                                    <span class="notification">5</span>
-                                    <span class="d-lg-none">Notification</span>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <a class="dropdown-item" href="#">Notification 1</a>
-                                    <a class="dropdown-item" href="#">Notification 2</a>
-                                    <a class="dropdown-item" href="#">Notification 3</a>
-                                    <a class="dropdown-item" href="#">Notification 4</a>
-                                    <a class="dropdown-item" href="#">Another notification</a>
-                                </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nc-icon nc-zoom-split"></i>
-                                    <span class="d-lg-block">&nbsp;Search</span>
-                                </a>
-                            </li>
-                        </ul> -->
+                       
                         <ul class="navbar-nav ml-auto">
                                 
                             <li class="nav-item">
@@ -124,57 +97,21 @@
             <div class="content">
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-10">
                             <div class="card">
-                                
+                                <div class="card-header">
+                                    
+                                </div>
                                 <div class="card-body">
-                                      <div class="col-sm-12 col-sm-offset-4 frame">
-                                        <ul class="chat"></ul>
-                                        <div>
-                                            <div class="msj-rta macro" style="margin:auto">                        
-                                                <div class="text text-r" style="background:whitesmoke !important">
-                                                    <input class="mytext" placeholder="Type a message"/>
-                                                </div> 
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <h2 class="card-title">Bienvenido Paciente : {{ Auth::user()->name }}</h2>
+                                </div><br>
+                                <div class="card-body">
+                                    <h3 class="card-title">Este es el panel principal</h3><br>
+                                    <h3 class="card-title">Para acceder a las funcionalidades de click en los botones del panel que esta a su izquierda</h3>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card card-user">
-                                <div class="card-image">
-                                    <img src="https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400" alt="...">
-                                </div>
-                                <div class="card-body">
-                                    <div class="author">
-                                        <a href="#">
-                                            <img class="avatar border-gray" src="{{asset('img/faces/face-3.jpg')}}" alt="...">
-                                            <h5 class="title">Mike Andrew</h5>
-                                        </a>
-                                        <p class="description">
-                                            michael24
-                                        </p>
-                                    </div>
-                                    <p class="description text-center">
-                                        "Lamborghini Mercy
-                                        <br> Your chick she so thirsty
-                                        <br> I'm in that two seat Lambo"
-                                    </p>
-                                </div>
-                                <hr>
-                                <div class="button-container mr-auto ml-auto">
-                                    <button href="#" class="btn btn-simple btn-link btn-icon">
-                                        <i class="fa fa-facebook-square"></i>
-                                    </button>
-                                    <button href="#" class="btn btn-simple btn-link btn-icon">
-                                        <i class="fa fa-twitter"></i>
-                                    </button>
-                                    <button href="#" class="btn btn-simple btn-link btn-icon">
-                                        <i class="fa fa-google-plus-square"></i>
-                                    </button>
-                                </div>
-                            </div>
+                        
                         </div>
                     </div>
                 </div>

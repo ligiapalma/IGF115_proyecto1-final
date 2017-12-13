@@ -16,8 +16,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/home2', 'HomeController@index2')->name('home2');
+Route::get('/index', 'HomeController@index')->name('index');
+Route::get('/index2', 'HomeController@index2')->name('index2');
+
+Route::get('/home', 'HomeController@indexHome')->name('home');
+Route::get('/home2', 'HomeController@indexHome2')->name('home2');
 
 Route::group(['middleware' => 'auth'], function () {
 	Route::name('usuariosLista')->get('/usuarios', 'UserController@index');
